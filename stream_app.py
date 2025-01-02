@@ -48,8 +48,15 @@ input_data = pd.DataFrame({
         'Turbidity': [Turbidity]
     })
 df=pd.read_csv('water_potability.csv')
-X = data.drop('Potability', axis=1)  # 'Potability' adalah kolom target
-y = data['Potability']  # Target variable
+#missing value
+missing_value = ['Sulfate', 'ph', 'Trihalomethanes']
+
+# Imputasi mean
+for col in missing_value:
+    df[col].fillna(df[col].mean(), inplace=True)
+  
+X = df.drop('Potability', axis=1)  # 'Potability' adalah kolom target
+y = df['Potability']  # Target variable
 
 # Bagi train test
 # Bagi data 70:30 latih dan uji
