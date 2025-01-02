@@ -47,6 +47,10 @@ input_data = pd.DataFrame({
         'Trihalomethanes': [Trihalomethanes],
         'Turbidity': [Turbidity]
     })
+df=pd.read_csv(water_potability.csv)
+X = data.drop('Potability', axis=1)  # 'Potability' adalah kolom target
+y = data['Potability']  # Target variable
+
 # Bagi train test
 # Bagi data 70:30 latih dan uji
 X_train, X_test, y_train, y_test =  train_test_split(X, y, test_size=0.30, random_state=42)
