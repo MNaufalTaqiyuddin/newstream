@@ -47,7 +47,7 @@ input_data = pd.DataFrame({
         'Trihalomethanes': [Trihalomethanes],
         'Turbidity': [Turbidity]
     })
-df=pd.read_csv(water_potability.csv)
+df=pd.read_csv('water_potability.csv')
 X = data.drop('Potability', axis=1)  # 'Potability' adalah kolom target
 y = data['Potability']  # Target variable
 
